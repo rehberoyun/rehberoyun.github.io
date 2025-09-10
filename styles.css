@@ -1,3 +1,5 @@
+Styles.css 
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -10,7 +12,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #28a745; /* Yeşil ton, oyun temasına uygun */
+    background-color: #28a745;
     color: white;
     padding: 10px 20px;
     position: fixed;
@@ -140,103 +142,4 @@ footer {
     .logo p {
         font-size: 10px;
     }
-}
-
-
-/* --- Yerleşim düzeni düzeltme --- */
-main {
-    display: flex;
-    justify-content: space-between; /* içerik ve sidebar ayrık */
-    align-items: flex-start; /* sidebar yukarıdan başlasın */
-    max-width: 1200px;
-    margin: 80px auto 20px auto;
-    gap: 20px;
-    padding: 0 15px;
-}
-
-.content {
-    flex: 3; /* içerik geniş */
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-}
-
-.sidebar {
-    flex: 1; /* sidebar dar */
-    background-color: #f1f1f1;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Mobil görünüm için */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
-    .sidebar {
-        order: 1; /* sidebar içeriğin ALTINA geçer (istersen  -1 yaparsın üstte çıkar) */
-    }
-}
-
-/* Yan menü */
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -260px;
-    width: 250px;
-    height: 100%;
-    background: #28a745;
-    color: white;
-    overflow-y: auto;
-    transition: left 0.3s ease;
-    z-index: 9999;
-    padding: 20px;
-}
-
-.side-menu.active {
-    left: 0;
-}
-
-.side-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Accordion */
-.accordion-header {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 0;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-}
-
-.accordion-header:hover {
-    background: rgba(0,0,0,0.1);
-}
-
-.accordion-content {
-    display: none;
-    margin-left: 15px;
-    padding: 5px 0;
-}
-
-.accordion-content li {
-    margin: 5px 0;
-}
-
-.accordion-content a {
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.accordion-content a:hover {
-    text-decoration: underline;
 }
