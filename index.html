@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rehber Oyun</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <div class="menu-toggle">☰</div>
-        <div class="logo">
-            <span>Rehber Oyun</span>
-            <p>Hilelerle Zirveye, Rehberle Güçlü!</p>
-        </div>
-        <div class="user-actions">
-            <span class="profile">👤</span>
-            <span class="search">🔍</span>
-        </div>
-    </header>
-    <!-- Hamburger Menü -->
-    <nav class="sidebar" id="sidebar">
-        <div class="close-btn">✖</div>
-        <div class="alphabet">
-            <div class="alphabet-list" id="alphabet-list">
-                <!-- A-Z harfleri JS ile eklenecek -->
-            </div>
-        </div>
-    </nav>
-    <!-- Oyun Listesi -->
-    <main>
+<body class="bg-gray-100 font-sans">
+    <!-- Header buraya yüklenecek -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Ana İçerik -->
+    <main class="container mx-auto p-4">
         <section id="game-list">
-            <div id="games"></div>
+            <h2 class="text-2xl font-semibold text-blue-600">Oyunlar</h2>
+            <div id="games" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                <!-- Oyunlar JS ile dinamik eklenecek -->
+            </div>
         </section>
     </main>
+
+    <!-- Footer buraya yüklenecek -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // header.html ve footer.html dosyalarını yükle
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Header yüklenemedi:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Footer yüklenemedi:', error));
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
