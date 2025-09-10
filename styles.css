@@ -21,7 +21,7 @@ body {
 
 .close-btn {
     font-size: 1.5rem;
-    color: #1e40af; /* Mavi tema */
+    color: #1e40af;
 }
 
 .alphabet-list a {
@@ -31,7 +31,42 @@ body {
 }
 
 .alphabet-list a:hover {
-    color: #3b82f6; /* Açık mavi hover efekti */
+    color: #3b82f6;
+}
+
+.letter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.letter-toggle {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    color: #1e40af;
+    font-weight: bold;
+}
+
+.letter-menu {
+    display: none;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.letter-menu.active {
+    display: block;
+}
+
+.letter-menu a {
+    display: block;
+    padding: 0.25rem 0;
+    color: #1e40af;
+    text-decoration: none;
+}
+
+.letter-menu a:hover {
+    color: #3b82f6;
+    text-decoration: underline;
 }
 
 @media (min-width: 768px) {
@@ -39,6 +74,6 @@ body {
         display: none;
     }
     .sidebar {
-        display: none; /* Büyük ekranlarda sidebar gizli */
+        display: none;
     }
 }
