@@ -8,34 +8,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-100 font-sans">
-    <header class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="menu-toggle cursor-pointer md:hidden" id="menu-toggle">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </div>
-            <div class="logo">
-                <span class="text-2xl font-bold">Rehber Oyun</span>
-                <p class="text-sm">Hep Bir Adım Önde Ol!</p>
-            </div>
-            <div class="user-actions flex space-x-4">
-                <span class="profile cursor-pointer">👤</span>
-                <span class="search cursor-pointer">🔍</span>
-            </div>
-        </div>
-    </header>
-    <!-- Hamburger Menü -->
-    <nav class="sidebar hidden" id="sidebar">
-        <div class="close-btn cursor-pointer p-4 text-right" id="close-btn">✖</div>
-        <div class="alphabet p-4">
-            <h3 class="text-lg font-semibold text-blue-600">Oyunları Harfe Göre Bul</h3>
-            <div class="alphabet-list mt-2" id="alphabet-list">
-                <!-- A-Z harfleri ve açılır menüler JS ile eklenecek -->
-            </div>
-        </div>
-    </nav>
-    <!-- Oyun Listesi -->
+    <!-- Header buraya yüklenecek -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Ana İçerik -->
     <main class="container mx-auto p-4">
         <section id="game-list">
             <h2 class="text-2xl font-semibold text-blue-600">Oyunlar</h2>
@@ -44,6 +20,26 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer buraya yüklenecek -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // header.html ve footer.html dosyalarını yükle
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Header yüklenemedi:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Footer yüklenemedi:', error));
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
