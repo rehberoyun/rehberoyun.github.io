@@ -1,58 +1,43 @@
-// Hamburger Menü Aç/Kapa
-const menuToggle = document.querySelector('.menu-toggle');
-const sidebar = document.getElementById('sidebar');
-const closeBtn = document.querySelector('.close-btn');
+document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger Menü İşlevselliği
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
 
-if (menuToggle && sidebar && closeBtn) {
     menuToggle.addEventListener('click', () => {
         sidebar.classList.toggle('active');
-        console.log('Menü açıldı/kapandı');
     });
 
     closeBtn.addEventListener('click', () => {
         sidebar.classList.remove('active');
-        console.log('Menü kapatıldı');
     });
-} else {
-    console.error('Hata: Menü elemanları bulunamadı');
-}
 
-// A-Z Harflerini Oluştur
-const alphabetList = document.getElementById('alphabet-list');
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-letters.forEach(letter => {
-    const button = document.createElement('button');
-    button.textContent = letter;
-    button.addEventListener('click', () => loadGames(letter));
-    alphabetList.appendChild(button);
-});
+    // A-Z Harf Listesi Oluşturma
+    const alphabetList = document.getElementById('alphabet-list');
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    letters.forEach(letter => {
+        const link = document.createElement('a');
+        link.href = `#${letter}`;
+        link.textContent = letter;
+        link.className = 'text-blue-600 hover:text-blue-400';
+        alphabetList.appendChild(link);
+    });
 
-// games.json’dan Oyunları Yükle
-async function loadGames(letter) {
-    try {
-        const response = await fetch('games.json');
-        if (!response.ok) throw new Error('games.json yüklenemedi');
-        const games = await response.json();
-        const filteredGames = games.filter(game => game.name.toUpperCase().startsWith(letter));
-        displayGames(filteredGames, letter);
-    } catch (error) {
-        console.error('Hata:', error);
-        document.getElementById('games').innerHTML = '<p>Oyunlar yüklenirken hata oluştu.</p>';
-    }
-}
+    // Örnek Oyun Listesi
+    const games = [
+        { name: 'GTA V', link: 'gta-v.html', description: 'Silah, araç ve daha fazla hile kodu.' },
+        { name: 'Minecraft', link: 'minecraft.html', description: 'Komutlar ve hileler.' },
+    ];
 
-// Oyunları Göster
-function displayGames(games, letter) {
-    const gameList = document.getElementById('games');
-    gameList.innerHTML = '';
-    if (games.length === 0) {
-        gameList.innerHTML = `<p>${letter} harfiyle başlayan oyun bulunamadı.</p>`;
-        return;
-    }
+    const gamesContainer = document.getElementById('games');
     games.forEach(game => {
-        const div = document.createElement('div');
-        div.className = 'game-item';
-        div.innerHTML = `<strong>${game.name}</strong>: ${game.cheat}`;
-        gameList.appendChild(div);
+        const gameCard = document.createElement('div');
+        gameCard.className = 'bg-white p-4 rounded-lg shadow';
+        gameCard.innerHTML = `
+            <h3 class="text-xl font-bold text-blue-600">${game.name}</h3>
+            <p>${game.description}</p>
+            <a href="${game.link}" class="text-blue-600 hover:underline">Hileleri Gör</a>
+        `;
+        gamesContainer.appendChild(gameCard);
     });
-}
+});
