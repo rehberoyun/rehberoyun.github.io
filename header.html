@@ -1,11 +1,40 @@
-<header>
-    <div class="menu-toggle">☰</div>
-    <div class="logo">
-        <span>Merlin'in Kazanı</span>
-        <p>Sınırları Sen Belirle</p>
-    </div>
-    <div class="user-actions">
-        <span class="profile">👤</span>
-        <span class="search">🔍</span>
-    </div>
-</header>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehber Oyun</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="menu-toggle">☰</div>
+        <div class="logo">
+            <span>Rehber Oyun</span>
+            <p>Hep Bir Adım Önde Ol!</p>
+        </div>
+        <div class="user-actions">
+            <span class="profile">👤</span>
+            <span class="search">🔍</span>
+        </div>
+    </header>
+    <!-- Hamburger Menü -->
+    <nav class="sidebar" id="sidebar">
+        <div class="close-btn">✖</div>
+        <div class="alphabet">
+            <h3>Oyunları Harfe Göre Bul</h3>
+            <div class="alphabet-list" id="alphabet-list">
+                <!-- A-Z harfleri JS ile dinamik eklenecek -->
+            </div>
+        </div>
+    </nav>
+    <!-- Oyun Listesi -->
+    <main>
+        <section id="game-list">
+            <h2>Oyunlar</h2>
+            <div id="games"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
