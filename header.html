@@ -1,0 +1,75 @@
+<header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">
+        <span>Rehber Oyun</span>
+        <p>Oyun Hileleri ve Rehberleri</p>
+    </div>
+    <div class="user-actions">
+        <span class="profile">👤</span>
+        <span class="search">🔍</span>
+    </div>
+</header>
+
+<!-- Yan Menü -->
+<nav class="side-menu" id="sideMenu">
+    <ul class="accordion" id="accordionMenu">
+        <!-- JS burayı dolduracak -->
+    </ul>
+</nav>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("sideMenu").classList.toggle("active");
+    }
+
+    // Accordion toggle
+    function setupAccordion() {
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                document.querySelectorAll('.accordion-content').forEach(content => {
+                    if (content !== header.nextElementSibling) {
+                        content.style.display = "none";
+                    }
+                });
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === "block" ? "none" : "block";
+            });
+        });
+    }
+
+    // JSON'dan oyunları yükle
+    fetch("games.json")
+        .then(res => res.json())
+        .then(data => {
+            const accordion = document.getElementById("accordionMenu");
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+            alphabet.forEach(letter => {
+                const li = document.createElement("li");
+                const btn = document.createElement("button");
+                btn.className = "accordion-header";
+                btn.textContent = letter;
+
+                const ul = document.createElement("ul");
+                ul.className = "accordion-content";
+
+                if (data[letter]) {
+                    data[letter].forEach(game => {
+                        const gameLi = document.createElement("li");
+                        const link = document.createElement("a");
+                        link.href = "#"; // İstersen burada oyun sayfasına link verirsin
+                        link.textContent = game;
+                        gameLi.appendChild(link);
+                        ul.appendChild(gameLi);
+                    });
+                }
+
+                li.appendChild(btn);
+                li.appendChild(ul);
+                accordion.appendChild(li);
+            });
+
+            setupAccordion();
+        })
+        .catch(err => console.error("JSON yüklenemedi:", err));
+</script>

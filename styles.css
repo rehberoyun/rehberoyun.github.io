@@ -1,0 +1,242 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #28a745; /* Yeşil ton, oyun temasına uygun */
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.user-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.user-actions span {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    max-width: 1200px;
+    margin: 80px auto 20px auto;
+    gap: 20px;
+}
+
+.content {
+    flex: 2;
+    padding: 20px;
+}
+
+.content h1 {
+    color: #28a745;
+    font-size: 28px;
+}
+
+.content p {
+    line-height: 1.6;
+}
+
+.content time {
+    color: #666;
+    font-size: 14px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.sidebar-section h2 {
+    color: #28a745;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 5px;
+}
+
+.sidebar-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-section ul li {
+    margin: 10px 0;
+}
+
+.sidebar-section ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar-section ul li a:hover {
+    color: #28a745;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .sidebar {
+        order: -1;
+    }
+    header {
+        padding: 10px;
+    }
+    .logo span {
+        font-size: 20px;
+    }
+    .logo p {
+        font-size: 10px;
+    }
+}
+
+
+/* --- Yerleşim düzeni düzeltme --- */
+main {
+    display: flex;
+    justify-content: space-between; /* içerik ve sidebar ayrık */
+    align-items: flex-start; /* sidebar yukarıdan başlasın */
+    max-width: 1200px;
+    margin: 80px auto 20px auto;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.content {
+    flex: 3; /* içerik geniş */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.sidebar {
+    flex: 1; /* sidebar dar */
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Mobil görünüm için */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .sidebar {
+        order: 1; /* sidebar içeriğin ALTINA geçer (istersen  -1 yaparsın üstte çıkar) */
+    }
+}
+
+/* Yan menü */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100%;
+    background: #28a745;
+    color: white;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Accordion */
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.accordion-header:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+.accordion-content {
+    display: none;
+    margin-left: 15px;
+    padding: 5px 0;
+}
+
+.accordion-content li {
+    margin: 5px 0;
+}
+
+.accordion-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.accordion-content a:hover {
+    text-decoration: underline;
+}
