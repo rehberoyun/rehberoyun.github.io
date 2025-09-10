@@ -1,62 +1,11 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RehberOyun - Oyun Hileleri</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="header"></div>
-
-    <main>
-        <section class="content">
-            <h1>Sims 4 Para Hilesi</h1>
-            <p>Sims 4'te para hilesi ile sınırsız kaynak elde et! İşte adım adım rehber: <a href="#">Detaylar</a></p>
-            <time>09.09.2025, 22:00</time>
-            <nav class="pagination">
-                <button><</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span>...</span>
-                <button>10</button>
-                <button>></button>
-            </nav>
-        </section>
-
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <h2>Menü</h2>
-                <ul>
-                    <li><a href="#">Hileler</a></li>
-                    <li><a href="#">Rehberler</a></li>
-                    <li><a href="#">Haberler</a></li>
-                    <li><a href="#">İletişim</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-section">
-                <h2>Popüler Hileler</h2>
-                <ul>
-                    <li><a href="#">GTA 5 Para Hilesi</a></li>
-                    <li><a href="#">Roblox Ücretsiz Kodlar</a></li>
-                    <li><a href="#">Minecraft Hızlı Madencilik</a></li>
-                </ul>
-            </div>
-        </aside>
-    </main>
-
-    <div id="footer"></div>
-
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header').innerHTML = data);
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer').innerHTML = data);
-    </script>
-</body>
-</html>
+<header>
+    <div class="menu-toggle">☰</div>
+    <div class="logo">
+        <span>Merlin'in Kazanı</span>
+        <p>Sınırları Sen Belirle</p>
+    </div>
+    <div class="user-actions">
+        <span class="profile">👤</span>
+        <span class="search">🔍</span>
+    </div>
+</header>
