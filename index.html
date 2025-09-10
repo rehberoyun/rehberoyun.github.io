@@ -1,11 +1,79 @@
-<header>
-    <div class="menu-toggle">☰</div>
-    <div class="logo">
-        <span>Merlin'in Kazanı</span>
-        <p>Sınırları Sen Belirle</p>
-    </div>
-    <div class="user-actions">
-        <span class="profile">👤</span>
-        <span class="search">🔍</span>
-    </div>
-</header>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merlin'in Kazanı Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header"></div> <!-- Header buraya yüklenecek -->
+
+    <main>
+        <section class="content">
+            <h1>Sims 4 Para Hilesi</h1>
+            <p>Sims 4 para hilesi ile oyunda istediğinize sahip olabilir, hayal ettiğiniz dünyayı rahatlıkla ortay... <a href="#">Devamını Oku</a></p>
+            <time>19.11.2020, 01:39</time>
+            <nav class="pagination">
+                <button><</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <span>...</span>
+                <button>176</button>
+                <button>177</button>
+                <button>></button>
+            </nav>
+        </section>
+
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h2>MK</h2>
+                <ul>
+                    <li><a href="#">Künye</a></li>
+                    <li><a href="#">Reklam</a></li>
+                    <li><a href="#">Etik İlkeler</a></li>
+                    <li><a href="#">Team One!</a></li>
+                    <li><a href="#">Hataları Bildirin</a></li>
+                    <li><a href="#">İletişim</a></li>
+                    <li><a href="#">Game News and Reviews</a></li>
+                    <li><a href="#">Video Oyunları</a></li>
+                    <li><a href="#">Oyun Haberleri</a></li>
+                    <li><a href="#">Oyun İncelemeleri</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h2>Popüler</h2>
+                <ul>
+                    <li><a href="#">Steam'in Popüler Uçakları...</a></li>
+                    <li><a href="#">GTA 6 AAAAA Seviyesi...</a></li>
+                    <li><a href="#">Electronic Arts Dört...</a></li>
+                    <li><a href="#">Korsanlar Hollow Kni...</a></li>
+                    <li><a href="#">Konsol Fiyatları Kon...</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h2>Oyun Platformları</h2>
+                <ul>
+                    <li><a href="#">PC</a></li>
+                    <li><a href="#">PlayStation</a></li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <div id="footer"></div> <!-- Footer buraya yüklenecek -->
+
+    <script>
+        // Header ve Footer'ı dinamik yükle
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header').innerHTML = data);
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
