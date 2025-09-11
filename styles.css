@@ -18,15 +18,16 @@ body {
   font-weight: bold;
 }
 .typewriter {
-  overflow: hidden; /* Harflerin taşmasını engeller */
-  white-space: nowrap; /* Metni tek satırda tutar */
-  border-right: 2px solid; /* İmleç efekti */
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
   animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
-  display: inline-block; /* Animasyonun doğru çalışması için */
+  display: inline-block;
+  color: #fff; /* Yazı rengini beyaza çevirdim */
 }
 @keyframes typing {
   from { width: 0; }
-  to { width: 150px; } /* "oyunrehberi.com" uzunluğuna göre ayarlandı */
+  to { width: 150px; }
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
@@ -40,6 +41,14 @@ body {
 }
 .search button {
   padding: 5px 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+}
+.search button:hover {
+  color: #ffcc00;
 }
 .social-icons a {
   color: #fff;
