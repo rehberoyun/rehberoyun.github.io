@@ -23,7 +23,7 @@ body {
   border-right: 2px solid;
   animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
   display: inline-block;
-  color: #fff; /* Yazı rengini beyaza çevirdim */
+  color: #fff;
 }
 @keyframes typing {
   from { width: 0; }
@@ -104,12 +104,18 @@ body {
 footer {
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Elemanları dikeyde ortalar */
   padding: 10px;
   background-color: #1a1a1a;
   color: white;
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 .copyright {
   text-align: right;
