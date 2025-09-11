@@ -11,6 +11,7 @@ body {
   background-color: #1a1a1a;
   color: white;
   padding: 10px 20px;
+  flex-wrap: wrap;
 }
 .logo {
   font-size: 24px;
@@ -25,9 +26,21 @@ body {
 .search button {
   padding: 5px 10px;
 }
+.social-icons {
+  margin-top: 10px;
+}
+.social-icons a {
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+.social-icons a:hover {
+  color: #ffcc00;
+}
 .category-section {
-  background-color: #2a2a2a;
+  background-color: #2a2a1a;
   padding: 10px;
+  text-align: center;
 }
 .category-section a {
   color: #fff;
