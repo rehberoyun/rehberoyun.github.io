@@ -69,10 +69,17 @@ body {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 20px;
-  text-align: center;
 }
-.box img {
-  max-width: 100%;
+.box-content {
+  display: flex;
+  align-items: center;
+}
+.box-content img {
+  max-width: 300px;
+  margin-right: 20px;
+}
+.text-content {
+  flex: 1;
 }
 .box a {
   display: block;
