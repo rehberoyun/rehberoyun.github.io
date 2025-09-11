@@ -16,7 +16,7 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #fff; /* Yazı rengi beyaza sabitlendi */
+  color: #fff;
 }
 .slogan {
   font-size: 14px;
@@ -105,8 +105,8 @@ footer {
 }
 .copyright {
   text-align: right;
-  max-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* max-width: 200px; kaldırıldı */
+  white-space: nowrap; /* Metnin tek satırda kalması devam ediyor */
+  /* overflow: hidden; kaldırıldı */
+  /* text-overflow: ellipsis; kaldırıldı */
 }
