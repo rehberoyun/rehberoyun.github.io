@@ -104,7 +104,7 @@ body {
 footer {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Elemanları dikeyde ortalar */
+  align-items: center;
   padding: 10px;
   background-color: #1a1a1a;
   color: white;
@@ -116,7 +116,12 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center; /* Elemanları dikeyde ortalar */
 }
 .copyright {
   text-align: right;
+  max-width: 200px; /* Metni daraltarak taşmayı önler */
+  white-space: nowrap; /* Metnin tek satırda kalmasını sağlar */
+  overflow: hidden; /* Taşan kısmı gizler */
+  text-overflow: ellipsis; /* Taşan kısımda ... gösterir (isteğe bağlı) */
 }
