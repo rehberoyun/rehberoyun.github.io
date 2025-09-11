@@ -17,6 +17,19 @@ body {
   font-size: 24px;
   font-weight: bold;
 }
+.typewriter {
+  overflow: hidden; /* Harflerin taşmasını engeller */
+  white-space: nowrap; /* Metni tek satırda tutar */
+  animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
+}
 .slogan {
   font-size: 14px;
 }
@@ -73,11 +86,15 @@ body {
   text-decoration: underline;
 }
 footer {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
   background-color: #1a1a1a;
   color: white;
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+.copyright {
+  text-align: right;
 }
