@@ -18,8 +18,8 @@ body {
   font-weight: bold;
 }
 .typewriter {
-  overflow: hidden; /* Harflerin taşmasını engeller */
-  white-space: nowrap; /* Metni tek satırda tutar */
+  overflow: hidden;
+  white-space: nowrap;
   animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
 }
 @keyframes typing {
@@ -39,13 +39,11 @@ body {
 .search button {
   padding: 5px 10px;
 }
-.social-icons {
-  margin-top: 10px;
-}
 .social-icons a {
   color: #fff;
   margin: 0 5px;
   text-decoration: none;
+  font-size: 20px;
 }
 .social-icons a:hover {
   color: #ffcc00;
