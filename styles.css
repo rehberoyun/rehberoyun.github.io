@@ -18,13 +18,15 @@ body {
   font-weight: bold;
 }
 .typewriter {
-  overflow: hidden;
-  white-space: nowrap;
+  overflow: hidden; /* Harflerin taşmasını engeller */
+  white-space: nowrap; /* Metni tek satırda tutar */
+  border-right: 2px solid; /* İmleç efekti */
   animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+  display: inline-block; /* Animasyonun doğru çalışması için */
 }
 @keyframes typing {
   from { width: 0; }
-  to { width: 100%; }
+  to { width: 150px; } /* "oyunrehberi.com" uzunluğuna göre ayarlandı */
 }
 @keyframes blink-caret {
   from, to { border-color: transparent; }
