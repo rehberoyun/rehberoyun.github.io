@@ -8,92 +8,61 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <!-- Header -->
   <div id="header"></div>
 
+  <!-- Ana içerik -->
   <main class="container">
-    <h2>Oyun Listesi</h2>
-    <div id="game-list"></div>
+    <!-- Oyun Listesi -->
+    <section class="game-list" id="game-list">
+      <!-- posts.json içeriği buraya gelecek -->
+    </section>
+
+    <!-- Son Yazılar Bölümü -->
+    <section class="recent-section">
+      <h2>Son Yazılar</h2>
+      <ul id="recent-posts"></ul>
+    </section>
   </main>
 
+  <!-- Footer -->
   <div id="footer"></div>
 
+  <!-- JavaScript -->
   <script>
+    // Header ve Footer yükle
     async function loadHTML(id, file) {
       const res = await fetch(file);
       document.getElementById(id).innerHTML = await res.text();
     }
+    loadHTML("header", "header.html");
+    loadHTML("footer", "footer.html");
 
-    async function loadPosts() {
-      const response = await fetch("posts.json");
-      return await response.json();
-    }
+    // Oyun Listesi doldur
+    fetch('posts.json')
+      .then(res => res.json())
+      .then(posts => {
+        const gameList = document.getElementById("game-list");
+        posts.forEach(post => {
+          const div = document.createElement("div");
+          div.className = "game-card";
+          div.innerHTML = `
+            <img src="images/${post.letter}.jpg" alt="${post.title}">
+            <h3>${post.title}</h3>
+            <p>Kısa açıklama buraya gelecek...</p>
+            <a href="${post.url}" class="read-more">Devamını Oku</a>
+          `;
+          gameList.appendChild(div);
+        });
 
-    function renderPosts(posts, containerId = "game-list") {
-      const container = document.getElementById(containerId);
-      container.innerHTML = "";
-
-      posts.forEach(post => {
-        const card = document.createElement("div");
-        card.className = "game-card";
-
-        const img = document.createElement("img");
-        const imgPath = "images/" + post.url.replace(".html", ".jpg");
-        img.src = imgPath;
-        img.alt = post.title;
-        img.onerror = () => { img.src = "images/no-image.jpg"; };
-
-        const info = document.createElement("div");
-        info.className = "game-info";
-
-        const h2 = document.createElement("h2");
-        h2.textContent = post.title;
-
-        const p = document.createElement("p");
-        p.textContent = "Bu oyun hakkında detaylı bilgi ve rehber için devamını oku...";
-
-        const a = document.createElement("a");
-        a.href = post.url;
-        a.textContent = "Devamını Oku";
-        a.className = "read-more";
-
-        info.appendChild(h2);
-        info.appendChild(p);
-        info.appendChild(a);
-
-        card.appendChild(img);
-        card.appendChild(info);
-        container.appendChild(card);
-      });
-    }
-
-    async function initSite() {
-      await loadHTML("header", "header.html");
-      await loadHTML("footer", "footer.html");
-
-      const posts = await loadPosts();
-      renderPosts(posts);
-
-      document.querySelectorAll(".alphabet-nav a").forEach(link => {
-        link.addEventListener("click", e => {
-          e.preventDefault();
-          const letter = link.textContent.toUpperCase();
-          const filtered = posts.filter(p => p.letter === letter);
-          renderPosts(filtered);
+        // Son Yazılar (en son 5 yazı)
+        const recentList = document.getElementById("recent-posts");
+        posts.slice(-5).reverse().forEach(post => {
+          const li = document.createElement("li");
+          li.innerHTML = `<a href="${post.url}">${post.title}</a>`;
+          recentList.appendChild(li);
         });
       });
-
-      const list = document.getElementById("recent-posts");
-      posts.slice(-5).reverse().forEach(post => {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = post.url;
-        a.textContent = post.title;
-        li.appendChild(a);
-        list.appendChild(li);
-      });
-    }
-
-    initSite();
   </script>
 </body>
 </html>
