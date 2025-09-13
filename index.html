@@ -12,17 +12,19 @@
   <div id="header"></div>
 
   <!-- Ana içerik -->
-  <main class="container">
-    <!-- Oyun Listesi -->
-    <section class="game-list" id="game-list">
-      <!-- posts.json içeriği buraya gelecek -->
-    </section>
+  <main class="container layout">
+    <!-- Sol taraf: Oyun listesi -->
+    <div class="content">
+      <section class="game-list" id="game-list">
+        <!-- posts.json içeriği buraya gelecek -->
+      </section>
+    </div>
 
-    <!-- Son Yazılar Bölümü -->
-    <section class="recent-section">
+    <!-- Sağ taraf: Son Yazılar -->
+    <aside class="sidebar">
       <h2>Son Yazılar</h2>
       <ul id="recent-posts"></ul>
-    </section>
+    </aside>
   </main>
 
   <!-- Footer -->
@@ -55,7 +57,7 @@
           gameList.appendChild(div);
         });
 
-        // Son Yazılar (en son 5 yazı)
+        // Sidebar → Son Yazılar (en son 5 yazı)
         const recentList = document.getElementById("recent-posts");
         posts.slice(-5).reverse().forEach(post => {
           const li = document.createElement("li");
