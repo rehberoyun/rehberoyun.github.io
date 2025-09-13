@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA 5 Hile Kodları - Rehber Oyun</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container">
+    <article class="game-detail">
+      <h2>GTA 5 Hile Kodları</h2>
+      <img src="../images/gta5.jpg" alt="GTA 5">
+      <p>
+        GTA 5 oyununda kullanabileceğiniz en popüler hile kodlarını bu rehberde topladık. 
+        Oyunda daha hızlı ilerlemek veya eğlenmek için aşağıdaki kodları deneyebilirsiniz.
+      </p>
+
+      <h3>Popüler Hileler</h3>
+      <ul>
+        <li><b>Araba Çıkarma:</b> ROCKET</li>
+        <li><b>Sağlık + Zırh:</b> TURTLE</li>
+        <li><b>Silah Paketi:</b> TOOLUP</li>
+        <li><b>Paraşüt:</b> SKYDIVE</li>
+      </ul>
+
+      <p>
+        Daha fazla detaylı GTA 5 rehberi için sitemizi takip etmeye devam edin.
+      </p>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    async function loadHTML(id, file) {
+      const res = await fetch("../" + file);
+      document.getElementById(id).innerHTML = await res.text();
+    }
+    loadHTML("header", "header.html");
+    loadHTML("footer", "footer.html");
+  </script>
+</body>
+</html>
