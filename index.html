@@ -40,7 +40,7 @@
         const imgPath = "images/" + post.url.replace(".html", ".png");
         img.src = imgPath;
         img.alt = post.title;
-        img.onerror = () => { img.src = "images/rehberoyunbosresim.png"; };
+        img.onerror = () => { img.src = "images/no-image.png"; };
 
         const info = document.createElement("div");
         info.className = "game-info";
