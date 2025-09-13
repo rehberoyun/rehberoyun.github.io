@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehber Oyun - Bir Adım Önde Ol!</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container">
+    <h2>Oyun Listesi</h2>
+    <div id="game-list"></div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    async function loadHTML(id, file) {
+      const res = await fetch(file);
+      document.getElementById(id).innerHTML = await res.text();
+    }
+
+    async function loadPosts() {
+      const response = await fetch("posts.json");
+      return await response.json();
+    }
+
+    function renderPosts(posts, containerId = "game-list") {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+
+      posts.forEach(post => {
+        const card = document.createElement("div");
+        card.className = "game-card";
+
+        const img = document.createElement("img");
+        const imgPath = "images/" + post.url.replace(".html", ".jpg");
+        img.src = imgPath;
+        img.alt = post.title;
+        img.onerror = () => { img.src = "images/no-image.jpg"; };
+
+        const info = document.createElement("div");
+        info.className = "game-info";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = post.title;
+
+        const p = document.createElement("p");
+        p.textContent = "Bu oyun hakkında detaylı bilgi ve rehber için devamını oku...";
+
+        const a = document.createElement("a");
+        a.href = post.url;
+        a.textContent = "Devamını Oku";
+        a.className = "read-more";
+
+        info.appendChild(h2);
+        info.appendChild(p);
+        info.appendChild(a);
+
+        card.appendChild(img);
+        card.appendChild(info);
+        container.appendChild(card);
+      });
+    }
+
+    async function initSite() {
+      await loadHTML("header", "header.html");
+      await loadHTML("footer", "footer.html");
+
+      const posts = await loadPosts();
+      renderPosts(posts);
+
+      document.querySelectorAll(".alphabet-nav a").forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const letter = link.textContent.toUpperCase();
+          const filtered = posts.filter(p => p.letter === letter);
+          renderPosts(filtered);
+        });
+      });
+
+      const list = document.getElementById("recent-posts");
+      posts.slice(-5).reverse().forEach(post => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = post.url;
+        a.textContent = post.title;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+
+    initSite();
+  </script>
+</body>
+</html>
