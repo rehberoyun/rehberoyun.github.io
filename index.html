@@ -37,10 +37,10 @@
         card.className = "game-card";
 
         const img = document.createElement("img");
-        const imgPath = "images/" + post.url.replace(".html", ".jpg");
+        const imgPath = "images/" + post.url.replace(".html", ".png");
         img.src = imgPath;
         img.alt = post.title;
-        img.onerror = () => { img.src = "images/no-image.jpg"; };
+        img.onerror = () => { img.src = "images/rehberoyunbosresim.png"; };
 
         const info = document.createElement("div");
         info.className = "game-info";
