@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant Ajan Rehberi - Rehber Oyun</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="container">
+    <article class="game-detail">
+      <h2>Valorant Ajan Rehberi</h2>
+      <img src="../images/valorant.jpg" alt="Valorant Ajan Rehberi">
+
+      <p>
+        Valorant, Riot Games tarafından geliştirilen ve kısa sürede dünyanın en popüler FPS oyunlarından biri haline gelen taktiksel bir nişancı oyunudur. 
+        Bu rehberde en çok kullanılan ajanlar ve taktiklerini bulabilirsiniz.
+      </p>
+
+      <h3>Popüler Ajanlar</h3>
+      <ul>
+        <li><b>Jett:</b> Hızlı hareket kabiliyeti ile rakipleri şaşırtır.</li>
+        <li><b>Sova:</b> Bilgi toplama oklarıyla takımına avantaj sağlar.</li>
+        <li><b>Omen:</b> Sis ve teleport yetenekleriyle oyunun dengesini değiştirir.</li>
+        <li><b>Sage:</b> Takım arkadaşlarını iyileştirir ve diriltir.</li>
+      </ul>
+
+      <h3>Oynarken İpuçları</h3>
+      <p>
+        Harita bilgisini iyi öğrenmek, ajan yeteneklerini doğru zamanda kullanmak ve takım ile iletişim kurmak Valorant'ta başarının anahtarıdır.
+      </p>
+
+      <p>
+        Daha detaylı ajan rehberleri ve taktikler için Rehber Oyun’u takip etmeye devam edin.
+      </p>
+    </article>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    async function loadHTML(id, file) {
+      const res = await fetch("../" + file);
+      document.getElementById(id).innerHTML = await res.text();
+    }
+    loadHTML("header", "header.html");
+    loadHTML("footer", "footer.html");
+  </script>
+</body>
+</html>
