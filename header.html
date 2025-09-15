@@ -2,15 +2,9 @@
   <div class="header-top">
     <div class="logo">
       <a href="index.html">
-        <img src="images/logokopya.png" alt="rehber oyun logo">
-      </a>
-    </div>
-
-    <!-- Hamburger menü butonu (mobil) -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-
+        <img src="images/logokopya.png" alt="rehber oyun logo"> </a>
+         </div>
+    
     <div class="search-social">
       <input type="text" placeholder="Ara...">
       <div class="social-icons">
@@ -22,7 +16,7 @@
   </div>
 
   <!-- A-Z Menü -->
-  <nav class="alphabet-nav" id="alphabet-nav">
+  <nav class="alphabet-nav">
     <ul>
       <li><a href="#">A</a></li>
       <li><a href="#">B</a></li>
@@ -55,13 +49,3 @@
     </ul>
   </nav>
 </header>
-
-<!-- Küçük JS kodu (hamburger menü aç/kapa) -->
-<script>
-  const toggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('alphabet-nav');
-
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
