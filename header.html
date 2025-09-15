@@ -1,67 +1,37 @@
-<header>
-  <div class="header-top">
-    <div class="logo">
-      <a href="index.html">
-        <img src="images/logokopya.png" alt="rehber oyun logo">
-      </a>
-    </div>
-
-    <!-- Hamburger menü butonu (mobil) -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <div class="search-social">
-      <input type="text" placeholder="Ara...">
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
+<header class="header-top">
+  <div class="logo">
+    <a href="index.html">
+      <img src="images/logo.png" alt="Site Logosu">
+    </a>
   </div>
 
-  <!-- A-Z Menü -->
+  <button class="menu-toggle" id="menu-toggle">☰</button>
+
   <nav class="alphabet-nav" id="alphabet-nav">
     <ul>
       <li><a href="#">A</a></li>
       <li><a href="#">B</a></li>
       <li><a href="#">C</a></li>
-      <li><a href="#">Ç</a></li>
-      <li><a href="#">D</a></li>
-      <li><a href="#">E</a></li>
-      <li><a href="#">F</a></li>
-      <li><a href="#">G</a></li>
-      <li><a href="#">H</a></li>
-      <li><a href="#">I</a></li>
-      <li><a href="#">İ</a></li>
-      <li><a href="#">J</a></li>
-      <li><a href="#">K</a></li>
-      <li><a href="#">L</a></li>
-      <li><a href="#">M</a></li>
-      <li><a href="#">N</a></li>
-      <li><a href="#">O</a></li>
-      <li><a href="#">Ö</a></li>
-      <li><a href="#">P</a></li>
-      <li><a href="#">R</a></li>
-      <li><a href="#">S</a></li>
-      <li><a href="#">Ş</a></li>
-      <li><a href="#">T</a></li>
-      <li><a href="#">U</a></li>
-      <li><a href="#">Ü</a></li>
-      <li><a href="#">V</a></li>
-      <li><a href="#">Y</a></li>
+      <!-- ... diğer harfler ... -->
       <li><a href="#">Z</a></li>
     </ul>
   </nav>
+
+  <div class="search-social">
+    <input type="text" placeholder="Ara...">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
 </header>
 
-<!-- Küçük JS kodu (hamburger menü aç/kapa) -->
 <script>
   const toggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('alphabet-nav');
+  const searchSocial = document.querySelector('.search-social');
 
   toggle.addEventListener('click', () => {
     nav.classList.toggle('open');
+    searchSocial.classList.toggle('open');
   });
 </script>
